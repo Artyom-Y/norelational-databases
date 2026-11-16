@@ -69,7 +69,7 @@ async function main() {
   // Include a mix: some with a publisher object, some with tags, some with both.
   await books.insertMany([
     {
-      title: "The picture of Dorian Gray",
+      title: "The Picture of Dorian Gray",
       publisher: "Le Livre de Poche (unless publisher means author)"
     },
     {
@@ -110,14 +110,14 @@ async function main() {
   // Dot notation lets you filter on a field inside an embedded object:
   //   { "publisher.country": "France" }
   // Log the title of the result.
-  let firstbook = await books.findOne({"publisher.country" : "France"});
+  let firstbook = await books.findOne({ "publisher.country": "France" });
   console.log("exercise 5:", firstbook.title);
   // ----------------------------------------------------------
   // TODO 6 - find with a filter
   // ----------------------------------------------------------
   // Find all books whose publisher.country is "France".
   // Log how many there are and list their titles.
-  cursor = await books.find({"publisher.country" : "France"});
+  cursor = await books.find({ "publisher.country": "France" });
   let allbooks = await cursor.toArray();
   console.log("exercise 6:", allbooks.length, "books");
   for (el of allbooks) {
@@ -129,7 +129,7 @@ async function main() {
   // Find all books that have a tags field, regardless of its value.
   //   { tags: { $exists: true } }
   // Log each title and its tags array.
-  cursor = await books.find({tags: {$exists: true}});
+  cursor = await books.find({ tags: { $exists: true } });
   taggedbooks = await cursor.toArray();
   console.log("Exercise 7: ");
   for (el of taggedbooks) {
