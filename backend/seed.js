@@ -13,17 +13,17 @@ async function main() {
 
   // TODO: delete all existing documents from the users collection
   // Hint: User.deleteMany({})
-  User.deleteMany({});
+  await User.deleteMany({});
 
   // TODO: delete all existing documents from the posts collection
-  Post.deleteMany({});
+  await Post.deleteMany({});
 
   // TODO: insert all users from usersData into the database
   // Hint: User.insertMany(usersData)
-  User.insertMany(usersData);
+  await User.insertMany(usersData);
 
   // TODO: insert all posts from postsData into the database
-  Post.insertMany(postsData);
+  await Post.insertMany(postsData);
 
   // TODO: log how many users and posts were inserted
   // Hint: User.countDocuments() returns the total count
